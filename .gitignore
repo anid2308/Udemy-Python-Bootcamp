@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+
+# Environments
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (keep repo light)
+data/
+
+# Outputs / checkpoints
+checkpoints/
+outputs/
+*.pth
+*.pt
+*.onnx
+*.tflite
+
+# OS
+.DS_Store
+Thumbs.db
