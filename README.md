@@ -1,18 +1,16 @@
-<<<<<<< HEAD
-# Machine Learning Projects Portfolio
+# Udemy Python Bootcamp - ML Projects Portfolio
 
-A collection of ML projects (mostly Jupyter notebooks) covering **supervised learning**, **unsupervised learning**, **NLP**, **time-series/finance EDA**, and **deep learning**.
+A comprehensive collection of **machine learning projects** covering **supervised learning**, **unsupervised learning**, **NLP**, **time-series/finance EDA**, and **deep learning**.
 
-The repo is organized so each project is easy to find, run, and showcase.
+This repository contains both Jupyter notebook projects and an interactive Streamlit web application for exploring and running the projects.
 
 ---
 
-## Recommended repo structure
+## 📁 Repository Structure
 
 ```text
 .
-├── resnet18-cifar10/                  # script-based deep learning project (PyTorch)
-├── notebooks/                         # classic ML + EDA notebooks
+├── notebooks/                         # Classic ML + EDA projects
 │   ├── 02-Linear Regression Project.ipynb
 │   ├── 02-Logistic Regression Project.ipynb
 │   ├── 02-K Nearest Neighbors Project.ipynb
@@ -20,180 +18,205 @@ The repo is organized so each project is easy to find, run, and showcase.
 │   ├── 02-Decision Trees and Random Forest Project.ipynb
 │   ├── 02-K Means Clustering Project.ipynb
 │   ├── 02-NLP Project.ipynb
-│   ├── 04-Tensorflow Project Exercise.ipynb
-│   └── 04-Finance Project - Solutions-checkpoint.ipynb
-├── reports/                           # PDF exports / write-ups
-│   ├── 911_Calls.pdf
-│   └── Finance_Project.pdf
-├── data/                              # datasets (optional; usually gitignored)
-├── .gitignore
-└── README.md                          # <-- you are here
+│   └── 04-Tensorflow Project Exercise.ipynb
+├── ml-projects/                       # Alternative organized ML projects folder
+│   ├── notebooks/
+│   ├── src/
+│   ├── streamlit_app.py
+│   ├── requirements.txt
+│   └── README.md
+├── src/                               # Source code
+│   └── streamlit_app.py
+├── .streamlit/                        # Streamlit configuration
+│   └── config.toml
+├── app.py                             # Main application entry point
+├── streamlit_app.py                   # Streamlit app launcher
+├── requirements.txt                   # Python dependencies
+├── Dockerfile                         # Docker configuration
+├── Procfile                           # Deployment configuration
+├── runtime.txt                        # Python runtime version
+├── LICENSE                            # MIT License
+└── README.md                          # This file
 ```
 
-If your files are currently in the repo root, create `notebooks/` and `reports/` and move them:
+---
+
+## 📚 Projects Overview
+
+### Supervised Learning
+
+- **Linear Regression** (Ecommerce Customers)
+  - Predict customer spending with linear regression
+  - File: `notebooks/02-Linear Regression Project.ipynb`
+
+- **Logistic Regression** (Ad Click Prediction)
+  - Binary classification for ad click prediction
+  - File: `notebooks/02-Logistic Regression Project.ipynb`
+
+- **K-Nearest Neighbors (KNN)**
+  - Classification using distance-based learning
+  - File: `notebooks/02-K Nearest Neighbors Project.ipynb`
+
+- **Support Vector Machines (SVM)**
+  - Classification with the Iris dataset
+  - File: `notebooks/02-Support Vector Machines Project.ipynb`
+
+- **Decision Trees & Random Forests** (LendingClub)
+  - Tree-based models for loan default prediction
+  - File: `notebooks/02-Decision Trees and Random Forest Project.ipynb`
+
+### Unsupervised Learning
+
+- **K-Means Clustering** (Universities)
+  - Unsupervised clustering and customer segmentation
+  - File: `notebooks/02-K Means Clustering Project.ipynb`
+
+### Natural Language Processing (NLP)
+
+- **NLP Project** (Yelp Reviews)
+  - Text classification: 1-star vs 5-star reviews
+  - NLP techniques: vectorization, naive bayes, SVM
+  - File: `notebooks/02-NLP Project.ipynb`
+
+### Deep Learning
+
+- **TensorFlow Neural Networks** (Banknote Authentication)
+  - Binary classification with neural networks
+  - TensorFlow/Keras implementation
+  - File: `notebooks/04-Tensorflow Project Exercise.ipynb`
+
+---
+
+## 🚀 Getting Started
+
+### Option 1: Run Streamlit Web App (Recommended)
+
+Interactive web interface to explore and run all notebooks:
 
 ```bash
-mkdir -p notebooks reports
-mv *.ipynb notebooks/
-mv *.pdf reports/
+pip install -r requirements.txt
+streamlit run streamlit_app.py
 ```
 
----
+Then visit `http://localhost:8501` in your browser.
 
-## Projects
+### Option 2: Run Jupyter Notebooks Locally
 
-### Classical Machine Learning (Notebooks)
+1. Create a virtual environment:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
 
-> Tip: GitHub renders notebooks. These links assume you moved them into `notebooks/`.
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-- **Linear Regression (Ecommerce Customers)** — regression workflow + model interpretation.
-  - Notebook: `notebooks/02-Linear Regression Project.ipynb`
+3. Launch Jupyter Lab:
+   ```bash
+   jupyter lab
+   ```
 
-- **Logistic Regression (Ad Click Prediction)** — binary classification + evaluation.
-  - Notebook: `notebooks/02-Logistic Regression Project.ipynb`
+4. Open notebooks from the `notebooks/` folder
 
-- **K-Nearest Neighbors (KNN)** — scaling + choosing `k` + classification.
-  - Notebook: `notebooks/02-K Nearest Neighbors Project.ipynb`
+### Option 3: Google Colab (No Installation Needed)
 
-- **Support Vector Machines (Iris dataset)** — SVM classification + hyperparameter tuning.
-  - Notebook: `notebooks/02-Support Vector Machines Project.ipynb`
-
-- **Decision Trees & Random Forests (LendingClub)** — tree-based modeling + model evaluation.
-  - Notebook: `notebooks/02-Decision Trees and Random Forest Project.ipynb`
-
-- **K-Means Clustering (Universities)** — unsupervised clustering + interpretation.
-  - Notebook: `notebooks/02-K Means Clustering Project.ipynb`
-
-- **NLP (Yelp Reviews)** — text vectorization + classification (1-star vs 5-star).
-  - Notebook: `notebooks/02-NLP Project.ipynb`
-
-### EDA / Capstones
-
-- **911 Calls EDA (Kaggle dataset)** — feature engineering on timestamps + visualizations.
-  - PDF report: `reports/911_Calls.pdf`
-
-- **Bank Stocks Finance EDA (2006–2016)** — returns, volatility, moving averages, correlations.
-  - PDF report: `reports/Finance_Project.pdf`
-  - Notebook: `notebooks/04-Finance Project - Solutions-checkpoint.ipynb`
-
-### Deep Learning (TensorFlow)
-
-- **TensorFlow Banknote Authentication** — binary classification with a neural net.
-  - Notebook: `notebooks/04-Tensorflow Project Exercise.ipynb`
-
----
-
-## Getting started
-
-### Option A: Run notebooks in Google Colab (fastest)
-1. Open any notebook in `notebooks/`
-2. Click **Open in Colab** (or upload to Colab)
+1. Go to [Google Colab](https://colab.research.google.com/)
+2. Upload a notebook or open from GitHub
 3. Run cells top-to-bottom
 
-### Option B: Run locally
-Create a virtual environment:
+### Option 4: Docker
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-```
-
-Install common dependencies (choose what you need):
-
-```bash
-pip install numpy pandas matplotlib seaborn scikit-learn jupyter tqdm
-```
-
-For deep learning projects:
-
-```bash
-# PyTorch + TorchVision (install the correct build for your system)
-# then:
-pip install torch torchvision
-
-# TensorFlow (optional; depends on your machine)
-# pip install tensorflow
-```
-
-Launch Jupyter:
-
-```bash
-jupyter lab
+docker build -t ml-projects .
+docker run -p 8501:8501 ml-projects
 ```
 
 ---
 
-## Notes on data
+## 💾 Data
 
-Some notebooks expect local CSVs (e.g., `loan_data.csv`, `advertising.csv`, `yelp.csv`, etc.).
+Most notebooks include sample datasets or load data from public sources:
+- Kaggle datasets (direct download or via API)
+- Scikit-learn built-in datasets
+- UCI ML Repository
 
-Recommended pattern:
-- Put datasets in `data/<project_name>/...`
-- Add `data/` to `.gitignore` (keep the repo lightweight)
-- In the notebook, update file paths to point to `../data/...`
+**For custom datasets:**
+- Create a `data/` folder: `mkdir data`
+- Add `data/` to `.gitignore` to keep repo lightweight
+- Update notebook paths: `pd.read_csv('../data/your_file.csv')`
 
 ---
 
-## Deployment with Streamlit on Hugging Face Spaces (FREE)
+## 🌐 Deployment
 
-Deploy this as an interactive Streamlit app on Hugging Face Spaces—completely free and easy!
+### Deploy with Streamlit on Hugging Face Spaces (FREE)
 
-### Setup Steps
+Deploy this project as an interactive web app on Hugging Face Spaces—completely free and easy!
 
-1. **Organize notebooks** (if not already done):
-   ```bash
-   mkdir -p notebooks
-   mv *.ipynb notebooks/
-   ```
+**Setup Steps:**
 
-2. **Commit and push to GitHub**:
-   ```bash
-   git add .
-   git commit -m "Add Streamlit deployment configuration"
-   git push origin main
-   ```
+1. Fork or clone this repository to your GitHub account
 
-3. **Deploy on Hugging Face Spaces**:
-   - Go to [https://huggingface.co/spaces](https://huggingface.co/spaces)
+2. Go to [Hugging Face Spaces](https://huggingface.co/spaces)
    - Click "Create new Space"
    - Choose **Streamlit** as the Space SDK
    - Connect your GitHub repository
-   - Hugging Face will auto-detect `requirements.txt` and `app.py`
-   - Your app will be live in minutes!
 
-4. Your app will be live at: `https://huggingface.co/spaces/{your-username}/{space-name}`
+3. Hugging Face automatically detects:
+   - `requirements.txt` (Python dependencies)
+   - `streamlit_app.py` (App entry point)
+   - `.streamlit/config.toml` (Streamlit configuration)
 
-### Test Locally
+4. Your app will be live in minutes at: `https://huggingface.co/spaces/{username}/{space-name}`
 
-Before deploying, test Streamlit locally:
-```bash
-pip install -r requirements.txt
-streamlit run app.py
-```
-Visit `http://localhost:8501` in your browser.
+**Features:**
+- Browse all notebooks from an interactive sidebar
+- View markdown cells with proper formatting
+- Run and explore code cells
+- Clean, responsive web interface
 
-### Files Used for Deployment
+**Note:** Streamlit on Hugging Face Spaces is completely free with no resource limits for small/medium projects.
 
-- `requirements.txt` — Python dependencies (Streamlit + ML libraries)
-- `app.py` — Streamlit app that displays all notebooks interactively
-- `README_HF.md` — Metadata for Hugging Face Spaces
+### Deploy with Render or Railway
 
-### Features
-
-- Browse all notebooks from a sidebar
-- View markdown cells formatted nicely
-- Expandable code cells
-- Clean, responsive interface
-
-### Notes
-
-- Streamlit on Hugging Face Spaces is **completely free**
-- No resource limits for small/medium projects
-- App stays active 24/7
-- Can be made public or private
+Alternative deployment options for container-based hosting:
+- Use `Dockerfile` and `Procfile` for containerized deployments
+- See deployment provider documentation for setup details
 
 ---
 
-## License
+## 📋 Requirements & Technologies
 
-MIT (see `LICENSE` in the repo root).
+**Core Libraries:**
+- `pandas` — Data manipulation and analysis
+- `numpy` — Numerical computing
+- `scikit-learn` — Machine learning algorithms
+- `matplotlib` & `seaborn` — Data visualization
+- `tensorflow` / `keras` — Deep learning
+
+**Development Tools:**
+- `jupyter` — Interactive notebooks
+- `streamlit` — Web app framework
+- `python 3.8+` — Programming language
+
+See `requirements.txt` for the complete dependency list.
+
+---
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details
+
+---
+
+## ✨ Features
+
+✅ **8+ Machine Learning Projects** covering supervised, unsupervised learning, and NLP  
+✅ **Interactive Streamlit Web App** for exploring all projects  
+✅ **Jupyter Notebooks** with detailed explanations and visualizations  
+✅ **Free Deployment** on Hugging Face Spaces  
+✅ **Docker & Container Support** for easy deployment  
+✅ **Well-Organized Code** - easy to find and understand  
+✅ **MIT Licensed** - use freely in your projects
