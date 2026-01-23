@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Machine Learning Projects Portfolio
 
 A collection of ML projects (mostly Jupyter notebooks) covering **supervised learning**, **unsupervised learning**, **NLP**, **time-series/finance EDA**, and **deep learning**.
