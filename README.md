@@ -133,79 +133,63 @@ Recommended pattern:
 
 ---
 
-## Deployment with Voila (FREE Options)
+## Deployment with Streamlit on Hugging Face Spaces (FREE)
 
-This project can be deployed as an interactive web application using [Voila](https://voila.readthedocs.io/). Here are free deployment options:
+Deploy this as an interactive Streamlit app on Hugging Face Spaces—completely free and easy!
 
-### Option 1: Render (Recommended)
-
-Render offers a free tier that works great for Voila apps.
+### Setup Steps
 
 1. **Organize notebooks** (if not already done):
    ```bash
-   mkdir -p notebooks reports
+   mkdir -p notebooks
    mv *.ipynb notebooks/
    ```
 
 2. **Commit and push to GitHub**:
    ```bash
    git add .
-   git commit -m "Add Voila deployment configuration"
+   git commit -m "Add Streamlit deployment configuration"
    git push origin main
    ```
 
-3. **Deploy on Render**:
-   - Go to [https://render.com](https://render.com) and sign up (with GitHub)
-   - Click "New +" → "Web Service"
-   - Select "Deploy an existing repo"
-   - Choose your GitHub repository
-   - Render will auto-detect `render.yaml` and configure itself
-   - Click "Deploy"
+3. **Deploy on Hugging Face Spaces**:
+   - Go to [https://huggingface.co/spaces](https://huggingface.co/spaces)
+   - Click "Create new Space"
+   - Choose **Streamlit** as the Space SDK
+   - Connect your GitHub repository
+   - Hugging Face will auto-detect `requirements.txt` and `app.py`
+   - Your app will be live in minutes!
 
-4. Your app will be live in a few minutes at your Render dashboard URL
+4. Your app will be live at: `https://huggingface.co/spaces/{your-username}/{space-name}`
 
-### Option 2: Replit
+### Test Locally
 
-Fastest option for getting started:
-
-1. Go to [https://replit.com](https://replit.com)
-2. Click "Import repository" and paste your GitHub repo URL
-3. Click "Run" and Replit will install dependencies
-4. In the Shell, run: `voila --port 3000 notebooks/`
-5. Your app is live at the Replit URL
-
-### Option 3: Railway
-
-Railway offers a free tier with monthly credits:
-
-1. Go to [https://railway.app](https://railway.app)
-2. Sign in with GitHub
-3. Click "Create New Project" → "Deploy from GitHub repo"
-4. Select your repository
-5. Set environment: Python
-6. Add start command: `voila --port $PORT --no-browser notebooks/`
-7. Deploy
-
-### Test Locally First
-
-Before deploying, test Voila locally:
+Before deploying, test Streamlit locally:
 ```bash
 pip install -r requirements.txt
-voila --port 8866 notebooks/
+streamlit run app.py
 ```
-Then visit `http://localhost:8866` in your browser.
+Visit `http://localhost:8501` in your browser.
 
 ### Files Used for Deployment
 
-- `requirements.txt` — Python dependencies (Voila + ML libraries)
-- `Procfile` — Process configuration (for Railway/similar services)
-- `runtime.txt` — Python version specification
+- `requirements.txt` — Python dependencies (Streamlit + ML libraries)
+- `app.py` — Streamlit app that displays all notebooks interactively
+- `README_HF.md` — Metadata for Hugging Face Spaces
+
+### Features
+
+- Browse all notebooks from a sidebar
+- View markdown cells formatted nicely
+- Expandable code cells
+- Clean, responsive interface
 
 ### Notes
 
-- Large notebooks or heavy computations may need optimization
-- Render/Railway may put free apps to sleep after inactivity
-- For production, consider upgrading to paid tiers or using Streamlit Cloud (also free)
+- Streamlit on Hugging Face Spaces is **completely free**
+- No resource limits for small/medium projects
+- App stays active 24/7
+- Can be made public or private
 
 ---
 
