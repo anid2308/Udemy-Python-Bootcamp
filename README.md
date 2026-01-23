@@ -41,14 +41,6 @@ mv *.pdf reports/
 
 ## Projects
 
-### Deep Learning
-
-**ResNet-18 on CIFAR-10 (PyTorch)**
-- What: Train a ResNet-18 classifier on CIFAR-10, with optional model compression.
-- Includes: baseline training, evaluation, TorchScript export, CPU benchmarking, **INT8 PTQ (FX)**, **structured pruning + fine-tuning**.
-- Folder: `resnet18-cifar10/`
-- Start here: `resnet18-cifar10/README.md`
-
 ### Classical Machine Learning (Notebooks)
 
 > Tip: GitHub renders notebooks. These links assume you moved them into `notebooks/`.
@@ -138,6 +130,82 @@ Recommended pattern:
 - Put datasets in `data/<project_name>/...`
 - Add `data/` to `.gitignore` (keep the repo lightweight)
 - In the notebook, update file paths to point to `../data/...`
+
+---
+
+## Deployment with Voila (FREE Options)
+
+This project can be deployed as an interactive web application using [Voila](https://voila.readthedocs.io/). Here are free deployment options:
+
+### Option 1: Render (Recommended)
+
+Render offers a free tier that works great for Voila apps.
+
+1. **Organize notebooks** (if not already done):
+   ```bash
+   mkdir -p notebooks reports
+   mv *.ipynb notebooks/
+   ```
+
+2. **Commit and push to GitHub**:
+   ```bash
+   git add .
+   git commit -m "Add Voila deployment configuration"
+   git push origin main
+   ```
+
+3. **Deploy on Render**:
+   - Go to [https://render.com](https://render.com) and sign up (with GitHub)
+   - Click "New +" → "Web Service"
+   - Select "Deploy an existing repo"
+   - Choose your GitHub repository
+   - Render will auto-detect `render.yaml` and configure itself
+   - Click "Deploy"
+
+4. Your app will be live in a few minutes at your Render dashboard URL
+
+### Option 2: Replit
+
+Fastest option for getting started:
+
+1. Go to [https://replit.com](https://replit.com)
+2. Click "Import repository" and paste your GitHub repo URL
+3. Click "Run" and Replit will install dependencies
+4. In the Shell, run: `voila --port 3000 notebooks/`
+5. Your app is live at the Replit URL
+
+### Option 3: Railway
+
+Railway offers a free tier with monthly credits:
+
+1. Go to [https://railway.app](https://railway.app)
+2. Sign in with GitHub
+3. Click "Create New Project" → "Deploy from GitHub repo"
+4. Select your repository
+5. Set environment: Python
+6. Add start command: `voila --port $PORT --no-browser notebooks/`
+7. Deploy
+
+### Test Locally First
+
+Before deploying, test Voila locally:
+```bash
+pip install -r requirements.txt
+voila --port 8866 notebooks/
+```
+Then visit `http://localhost:8866` in your browser.
+
+### Files Used for Deployment
+
+- `requirements.txt` — Python dependencies (Voila + ML libraries)
+- `Procfile` — Process configuration (for Railway/similar services)
+- `runtime.txt` — Python version specification
+
+### Notes
+
+- Large notebooks or heavy computations may need optimization
+- Render/Railway may put free apps to sleep after inactivity
+- For production, consider upgrading to paid tiers or using Streamlit Cloud (also free)
 
 ---
 
