@@ -29,5 +29,10 @@ outputs/
 .DS_Store
 Thumbs.db
 *.pdf
-*.pdf
-*.pdf
+
+# Deployment files (not needed for Streamlit/HuggingFace)
+Dockerfile
+Procfile
+render.yaml
+runtime.txt
+app.py
