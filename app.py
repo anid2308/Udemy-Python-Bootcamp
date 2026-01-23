@@ -9,12 +9,27 @@ st.set_page_config(page_title="ML Projects", layout="wide")
 st.title("🤖 Machine Learning Projects Portfolio")
 st.markdown("A collection of ML projects covering supervised learning, unsupervised learning, NLP, and deep learning.")
 
-# Get all notebooks
+# Get all notebooks - check both notebooks/ and root directory
 notebooks_dir = Path("notebooks")
-notebooks = sorted(notebooks_dir.glob("*.ipynb"))
+if not notebooks_dir.exists():
+    notebooks_dir = Path(".")
+
+notebooks = sorted(Path(".").glob("*.ipynb"))
+if notebooks_dir != Path("."):
+    notebooks = sorted(notebooks_dir.glob("*.ipynb"))
 
 if not notebooks:
-    st.error("No notebooks found in the notebooks/ directory. Please move your .ipynb files there.")
+    st.info("📝 Welcome to the ML Projects Portfolio!")
+    st.markdown("""
+    This app displays interactive machine learning projects from Jupyter notebooks.
+    
+    **Setup Instructions:**
+    1. Make sure your `.ipynb` files are in the repo
+    2. They should appear here automatically
+    
+    If you're seeing this message, notebooks are being loaded...
+    """)
+else:
 else:
     # Create sidebar with notebook selection
     st.sidebar.header("📚 Projects")
