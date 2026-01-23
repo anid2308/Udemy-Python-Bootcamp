@@ -4,6 +4,10 @@ A comprehensive collection of **machine learning projects** covering **supervise
 
 This repository contains both Jupyter notebook projects and an interactive Streamlit web application for exploring and running the projects.
 
+Access the dashboard on Streamlit HuggingFace: https://huggingface.co/spaces/AniD123/ml-projects
+(Note: inactivity after 48hr)
+
+
 ---
 
 ## 📁 Repository Structure
