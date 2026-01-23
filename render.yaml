@@ -5,4 +5,4 @@ services:
     plan: free
     pythonVersion: 3.11
     buildCommand: pip install -r requirements.txt
-    startCommand: voila --port $PORT --no-browser --ResourceUseDisplay=True notebooks/
+    startCommand: voila --port $PORT --no-browser notebooks/

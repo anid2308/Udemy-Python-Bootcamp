@@ -1,1 +1,1 @@
-web: voila --port=$PORT --no-browser --ResourceUseDisplay=True notebooks/
+web: voila --port=$PORT --no-browser notebooks/
