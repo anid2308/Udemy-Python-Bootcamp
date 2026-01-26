@@ -6,16 +6,61 @@ __pycache__/
 dist/
 build/
 
-# Environments
+# Environments - IMPORTANT: Never commit .env files!
 .venv/
 venv/
 .env
+.env.local
+.env.*.local
+.env.prod
+.env.development
+.env.test
+
+# Credentials and Secrets
+# API keys and tokens
+*.key
+*.pem
+*.pub
+*.p12
+*.pfx
+*.jks
+credentials.json
+secrets.json
+.aws/
+.gcp/
+google-services.json
+firebase.json
+
+# Database credentials
+*.db.conf
+database.yml
+config/database.yml
+
+# SSH and security keys
+~/.ssh/
+id_rsa
+id_dsa
+id_ed25519
+*.ppk
+
+# IDE / Editor
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
 
 # Jupyter
 .ipynb_checkpoints/
+.jupyter/
 
 # Data (keep repo light)
 data/
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.feather
 
 # Outputs / checkpoints
 checkpoints/
@@ -24,6 +69,9 @@ outputs/
 *.pt
 *.onnx
 *.tflite
+*.h5
+*.pkl
+*.pickle
 
 # OS
 .DS_Store
@@ -36,3 +84,28 @@ Procfile
 render.yaml
 runtime.txt
 app.py
+
+# Logs and temporary files
+*.log
+*.log.*
+tmp/
+temp/
+.cache/
+
+# Python package manager files with credentials
+pip.conf
+~/.pip/pip.conf
+pyproject.toml (if contains secrets)
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Generated auth/session files
+session_data/
+cookies/
+.tokens/
